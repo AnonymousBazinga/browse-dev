@@ -7,7 +7,7 @@ import SocialShare from "@/components/social-share"
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col">
-      {/* Hero Section */}
+      {/* Hero Section with Waitlist Form */}
       <section className="relative flex min-h-screen flex-col items-center justify-center px-4 py-32 text-center">
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-zinc-100 to-white" />
         <div className="mx-auto max-w-3xl">
@@ -15,16 +15,15 @@ export default function Home() {
             Your Browser, <span className="block text-zinc-500">on Autopilot.</span>
           </h1>
           <p className="mb-10 text-xl text-zinc-600">
-            Meet the world’s first agentic browser — understand pages, suggest actions, and automate tasks with one click.
+            Meet the world's first agentic browser — understand pages, suggest actions, and automate tasks with one click.
           </p>
+
+          {/* Waitlist Form added directly in the hero section */}
+          <div className="mb-10">
+            <WaitlistForm />
+          </div>
+
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <Link
-              href="#waitlist"
-              className="group inline-flex items-center justify-center rounded-full bg-zinc-900 px-6 py-3 text-sm font-medium text-white transition hover:bg-zinc-700 focus:outline-none focus:ring-2 focus:ring-zinc-400 focus:ring-offset-2"
-            >
-              Join Waitlist
-              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </Link>
             <Link
               href="#video"
               className="inline-flex items-center justify-center rounded-full border border-zinc-300 bg-white px-6 py-3 text-sm font-medium text-zinc-900 transition hover:bg-zinc-50 focus:outline-none focus:ring-2 focus:ring-zinc-400 focus:ring-offset-2"
@@ -51,19 +50,6 @@ export default function Home() {
 
       {/* Video Section */}
       <VideoSection />
-
-      {/* Waitlist Section */}
-      <section id="waitlist" className="bg-zinc-50 px-4 py-24">
-        <div className="mx-auto max-w-3xl text-center">
-          <h2 className="mb-6 text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl">
-            Be the first to experience browse.dev
-          </h2>
-          <p className="mb-10 text-lg text-zinc-600">
-            Join our exclusive waitlist and get early access when we launch.
-          </p>
-          <WaitlistForm />
-        </div>
-      </section>
 
       {/* Footer */}
       <footer className="bg-white px-4 py-12">
