@@ -12,10 +12,10 @@ export default function Home() {
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-zinc-100 to-white" />
         <div className="mx-auto max-w-3xl">
           <h1 className="mb-6 text-5xl font-bold tracking-tight text-zinc-900 sm:text-6xl md:text-7xl">
-            Your Browser, <span className="block text-zinc-500">on Autopilot.</span>
+            Meteor.
           </h1>
           <p className="mb-10 text-xl text-zinc-600">
-            Meet the world's first agentic browser — understand pages, suggest actions, and automate tasks with one click.
+            The world's first agentic browser — understand pages, suggest actions, and automate tasks with one click.
           </p>
 
           {/* Waitlist Form added directly in the hero section */}

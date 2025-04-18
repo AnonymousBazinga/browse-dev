@@ -6,14 +6,16 @@ import { Play, Pause, Volume2, VolumeX } from "lucide-react"
 export default function VideoSection() {
   const [isPlaying, setIsPlaying] = useState(false)
   const [isMuted, setIsMuted] = useState(false)
-  const videoRef = useRef<HTMLVideoElement>(null)
+  const videoRef = useRef<HTMLIFrameElement>(null)
 
   const togglePlay = () => {
     if (videoRef.current) {
       if (isPlaying) {
-        videoRef.current.pause()
+        // Pause YouTube video
+        videoRef.current.contentWindow?.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*')
       } else {
-        videoRef.current.play()
+        // Play YouTube video
+        videoRef.current.contentWindow?.postMessage('{"event":"command","func":"playVideo","args":""}', '*')
       }
       setIsPlaying(!isPlaying)
     }
@@ -21,7 +23,13 @@ export default function VideoSection() {
 
   const toggleMute = () => {
     if (videoRef.current) {
-      videoRef.current.muted = !isMuted
+      if (isMuted) {
+        // Unmute YouTube video
+        videoRef.current.contentWindow?.postMessage('{"event":"command","func":"unMute","args":""}', '*')
+      } else {
+        // Mute YouTube video
+        videoRef.current.contentWindow?.postMessage('{"event":"command","func":"mute","args":""}', '*')
+      }
       setIsMuted(!isMuted)
     }
   }
@@ -30,28 +38,23 @@ export default function VideoSection() {
     <section id="video" className="bg-white px-4 py-24">
       <div className="mx-auto max-w-4xl">
         <h2 className="mb-6 text-center text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl">
-          See browse.dev in action
+          See Meteor in action
         </h2>
         <p className="mb-10 text-center text-lg text-zinc-600">
-          Watch our product demo to see how browse.dev transforms your development workflow.
+          Watch our product demo to see how Meteor transforms how you search the web.
         </p>
 
         <div className="relative mx-auto aspect-video w-full overflow-hidden rounded-xl bg-zinc-100 shadow-xl">
-          {/* Placeholder for video - replace src with your actual video */}
-          <div className="absolute inset-0 flex items-center justify-center">
-            <p className="text-zinc-500">Your video will appear here</p>
-          </div>
-
-          <video
+          {/* YouTube iframe */}
+          <iframe
             ref={videoRef}
             className="h-full w-full object-cover"
-            poster="/placeholder.svg?height=720&width=1280"
-            controls={false}
-          >
-            {/* Add your video source when available */}
-            {/* <source src="/your-video-file.mp4" type="video/mp4" /> */}
-            Your browser does not support the video tag.
-          </video>
+            src="https://www.youtube.com/embed/rjPMMhqyApc?enablejsapi=1"
+            title="browse.dev product demo"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
 
           {/* Custom video controls */}
           <div className="absolute bottom-0 left-0 right-0 flex items-center justify-between bg-gradient-to-t from-black/70 to-transparent p-4 text-white">
@@ -74,7 +77,7 @@ export default function VideoSection() {
         </div>
 
         <p className="mt-4 text-center text-sm text-zinc-500">
-          Upload your product demo video to showcase browse.dev's features.
+          Join the waitlist for early access!
         </p>
       </div>
     </section>

@@ -21,7 +21,7 @@ export default function WaitlistForm() {
     }
   }, [isSuccess])
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
     if (!email) {
@@ -87,11 +87,11 @@ export default function WaitlistForm() {
           </div>
           <h3 className="mb-2 text-2xl font-semibold">You're on the waitlist!</h3>
           <p className="mb-6 text-zinc-600 max-w-md">
-            Thank you for your interest in browse.dev. We'll notify you when we launch.
+            Thank you for your interest in Meteor. We'll notify you when we launch.
           </p>
           <div className="flex gap-4">
             <a
-              href="https://twitter.com/intent/tweet?text=Just+joined+the+waitlist+for+%40browse_dev+%F0%9F%9A%80+An+agentic+browser+that+automates+your+workflow+on+the+web.+Get+in+line%3A+browse.dev"
+              href="https://x.com/intent/post?text=Just%20joined%20the%20waitlist%20for%20Meteor%20-%20an%20agentic%20browser%20that%20can%20do%20stuff%20for%20you!%20Go%20to%20browse.dev%20to%20check%20it%20out."
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded bg-black px-4 py-2 text-sm font-medium text-white transition hover:bg-zinc-800"
