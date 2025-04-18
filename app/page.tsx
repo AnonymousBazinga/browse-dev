@@ -63,10 +63,10 @@ export default function Home() {
               <Link href="/privacy" className="text-sm text-zinc-500 hover:text-zinc-900">
                 Privacy
               </Link>
-              <Link href="/terms" className="text-sm text-zinc-500 hover:text-zinc-900">
+              {/* <Link href="/terms" className="text-sm text-zinc-500 hover:text-zinc-900">
                 Terms
-              </Link>
-              <SocialShare />
+              </Link> */}
+              {/* <SocialShare /> */}
             </div>
           </div>
         </div>

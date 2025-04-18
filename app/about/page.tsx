@@ -18,7 +18,7 @@ export default function AboutPage() {
           <div className="mb-12 space-y-4 text-lg text-zinc-700">
             <p>Meteor is an agentic browser that can do stuff for you.</p>
             <p>We blend the flexibility of a modern browser with the power of intelligent task automation.</p>
-            <p>Our vision is to make a browser that knows you, understands what you need and execute on your behalf — almost like your very own personal assistant.</p>
+            <p>Our vision is to make a browser that knows you, understands what you need and executes on your behalf — almost like your very own personal assistant.</p>
           </div>
 
           {/* Team */}
